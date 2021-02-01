@@ -5,35 +5,38 @@
     <ng-container [ngSwitch]="input.controlType">
       <ng-template [ngSwitchCase]="'text'">
         <div class="form-group">
-          <label [for]="input.controlName"> {{input.controlName}}</label>
-          <input  [formControlName]="input.controlName"
-                  [type]="input.valueType" 
-                  [name]="input.controlName"
-                  [id]="input.controlName"
-                  [value]="input.currentValue ? input.currentValue  : ''"
-                  [required]="input.validators.required"
-                  [minlength]="input.validators.minlength"
-                  [pattern]="input.validators.pattern"
-                  [maxlength]="input.validators.maxlength"
-                  [placeholder]="input.placeholder" />
-          <div class="error" *ngIf="form.get(input.controlName).invalid && (form.get(input.controlName).dirty || form.get(input.controlName).touched)">
-            <div *ngIf="form.get(input.controlName).errors.required">Input required</div>
+          <label [for]="input.key"> {{input.key}}</label>
+          <input  [formControlName]="input.key"
+                  [type]="input.type" 
+                  [name]="input.ley"
+                  [id]="input.key"
+                  [value]="input.value ? input.value  : ''"
+                  [required]="input.validators[key] == 'required' ? input.validators[key].value : null"
+                  [minlength]="input.validators[key] == 'minlength' ? input.validators[key].value : ''"
+                  [pattern]="input.validators[key] == 'pattern' ? input.validators[key].value : ''"
+                  [maxlength]="input.validators[key] == 'maxlength' ? input.validators[key].value : ''"
+                  [placeholder]="input.label" />
+          <div class="error" *ngIf="form.get(input.key).invalid && (form.get(input.key).dirty || form.get(input.key).touched)">
+            <ng-container *ngFor="let validator of input.validators">
+              <div *ngIf="form.get(input.key).errors[validator.key]">{{ validator.text }}</div>
+            </ng-container>
+<!--             <div *ngIf="form.get(input.controlName).errors.required">Input required</div>
             <div *ngIf="form.get(input.controlName).errors.minlength">Minimum length is {{input.validators.minlength}}</div>
-            <div *ngIf="form.get(input.controlName).errors.pattern">Bad email format</div>
+            <div *ngIf="form.get(input.controlName).errors.pattern">Bad email format</div> -->
           </div>
         </div>
       </ng-template>
 
       <ng-template [ngSwitchCase]="'select'">
         <div class="form-group">
-          <label [for]="input.controlName"> {{input.controlName}}</label>
+          <label [for]="input.key"> {{input.key}}</label>
           <select [formControlName]="input.controlName"
-                  [name]="input.controlName"
-                  [id]="input.controlName"
-                  [required]="input.validators.required">
-          <option value="">{{input.placeholder}}</option>
+                  [name]="input.key"
+                  [id]="input.key"
+                  [required]="input.validators[key] == 'required' ? input.validators[key].value : ''">
+          <option value="">{{input.label}}</option>
           <option *ngFor="let option of input.options"
-                  [value]="option.value">{{option.optionName}}</option>
+                  [value]="option.value">{{option.key}}</option>
         </select>
       </div>
       </ng-template>

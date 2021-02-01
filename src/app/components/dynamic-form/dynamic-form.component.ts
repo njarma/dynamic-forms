@@ -1,6 +1,6 @@
-import { FormData } from './../../shared/interface/form-data';
 import { Component, OnInit, Input } from '@angular/core';
 import { FormGroup, FormControl } from '@angular/forms';
+import { FormControlBase } from './../../shared/interface/form-control-base';
 
 @Component({
   selector: 'app-dynamic-form',
@@ -8,7 +8,7 @@ import { FormGroup, FormControl } from '@angular/forms';
   styleUrls: ['./dynamic-form.component.scss']
 })
 export class DynamicFormComponent implements OnInit {
-  @Input()formData: FormData[];
+  @Input()formData: FormControlBase<string>[];
   form: FormGroup;
   submitted: boolean;
 
@@ -18,7 +18,7 @@ export class DynamicFormComponent implements OnInit {
     const formGroup = {};
 
     this.formData.forEach(formControl => {
-      formGroup[formControl.controlName] = new FormControl('');
+      formGroup[formControl.key] = new FormControl('');
     });
 
     this.form = new FormGroup(formGroup);
