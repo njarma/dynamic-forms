@@ -1,6 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { FormGroup, FormControl } from '@angular/forms';
-import { FormControlBase } from './../../shared/interface/form-control-base';
+import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { FormControlBase } from './../../shared/controls/form-control-base';
 
 @Component({
   selector: 'app-dynamic-form',
@@ -18,9 +18,29 @@ export class DynamicFormComponent implements OnInit {
     const formGroup = {};
 
     this.formData.forEach(formControl => {
-      formGroup[formControl.key] = new FormControl('');
-    });
+      let validators = [];
 
+      formControl.validators.forEach( validator => {
+        debugger;
+        const VALUE = (Number(validator.value));
+
+        if (validator.key == 'required') {
+          validators.push(Validators.required);
+        }
+        if ((validator.key).toLowerCase() == 'minlength') {
+          validators.push(Validators.minLength(validator.value));
+        }
+        if ((validator.key).toLowerCase() == 'maxlength') {
+          validators.push(Validators.maxLength(validator.value));
+        }
+        if (validator.key == 'pattern') {
+          validators.push(Validators.pattern(validator.value));
+        }
+
+      });
+      formGroup[formControl.key] = new FormControl(null, validators);
+    });
+    debugger;
     this.form = new FormGroup(formGroup);
   }
 

@@ -1,7 +1,7 @@
-import { FormControlBase } from '../interface/form-control-base';
-import { TextboxControl } from '../interface/text-box-control';
-import { EmailControl } from '../interface/email-control';
-import { SelectControl } from '../interface/select-control';
+import { FormControlBase } from '../controls/form-control-base';
+import { TextboxControl } from '../controls/text-box-control';
+import { EmailControl } from '../controls/email-control';
+import { SelectControl } from '../controls/select-control';
 import { Injectable } from '@angular/core';
 import { of } from 'rxjs/internal/observable/of';
 
@@ -21,7 +21,7 @@ export class FormControlService {
             text: 'nput required'
           },
           {
-            key: 'minlength',
+            key: 'minLength',
             value: 5,
             text: 'Minimum length is '
           }
@@ -39,12 +39,12 @@ export class FormControlService {
             text: 'Input required'
           },
           {
-            key: 'minlength',
+            key: 'minLength',
             value: 7,
             text: 'Minimum length is '
           },
           {
-            key: 'maxlength',
+            key: 'maxLength',
             value: 10,
             text: 'Maximus length is '
           }
@@ -67,7 +67,7 @@ export class FormControlService {
             text: 'Email format is incorrect'
           },
           {
-            key: 'maxlength',
+            key: 'maxLength',
             value: 10,
             text: 'Maximus length is '
           }

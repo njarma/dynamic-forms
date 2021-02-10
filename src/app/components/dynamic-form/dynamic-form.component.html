@@ -11,15 +11,12 @@
                   [name]="input.ley"
                   [id]="input.key"
                   [value]="input.value ? input.value  : ''"
-                  [required]="input.validators[key] == 'required' ? input.validators[key].value : null"
-                  [minlength]="input.validators[key] == 'minlength' ? input.validators[key].value : ''"
-                  [pattern]="input.validators[key] == 'pattern' ? input.validators[key].value : ''"
-                  [maxlength]="input.validators[key] == 'maxlength' ? input.validators[key].value : ''"
                   [placeholder]="input.label" />
+                  <pre>{{form.get(input.key).invalid | json}}</pre>
           <div class="error" *ngIf="form.get(input.key).invalid && (form.get(input.key).dirty || form.get(input.key).touched)">
-            <ng-container *ngFor="let validator of input.validators">
+            <div *ngFor="let validator of input.validators">
               <div *ngIf="form.get(input.key).errors[validator.key]">{{ validator.text }}</div>
-            </ng-container>
+            </div>
 <!--             <div *ngIf="form.get(input.controlName).errors.required">Input required</div>
             <div *ngIf="form.get(input.controlName).errors.minlength">Minimum length is {{input.validators.minlength}}</div>
             <div *ngIf="form.get(input.controlName).errors.pattern">Bad email format</div> -->

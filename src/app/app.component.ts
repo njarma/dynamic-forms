@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { FormControlBase } from './shared/interface/form-control-base';
+import { FormControlBase } from './shared/controls/form-control-base';
 import { Observable } from 'rxjs/internal/Observable';
 import { FormControlService } from './shared/service/form-control-service';
 
