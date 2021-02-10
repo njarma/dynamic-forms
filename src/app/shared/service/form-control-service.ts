@@ -21,7 +21,7 @@ export class FormControlService {
             text: 'nput required'
           },
           {
-            key: 'minLength',
+            key: 'minlength',
             value: 5,
             text: 'Minimum length is '
           }
@@ -39,12 +39,12 @@ export class FormControlService {
             text: 'Input required'
           },
           {
-            key: 'minLength',
+            key: 'minlength',
             value: 7,
             text: 'Minimum length is '
           },
           {
-            key: 'maxLength',
+            key: 'maxlength',
             value: 10,
             text: 'Maximus length is '
           }
@@ -67,7 +67,7 @@ export class FormControlService {
             text: 'Email format is incorrect'
           },
           {
-            key: 'maxLength',
+            key: 'maxlength',
             value: 10,
             text: 'Maximus length is '
           }
