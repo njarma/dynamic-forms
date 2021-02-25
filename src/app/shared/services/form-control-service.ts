@@ -8,7 +8,7 @@ import { of } from 'rxjs/internal/observable/of';
 @Injectable()
 export class FormControlService {
 
-  getFormControls() {
+  getFormControls(opt?) {
     const controls: FormControlBase<string>[] = [
       new TextboxControl({
         key: 'Username',
@@ -77,6 +77,7 @@ export class FormControlService {
       new SelectControl({
         key: 'Gender',
         label: 'Select Gender',
+        //options: opt,
         options: [
           {
             key: 'Male',
@@ -86,7 +87,7 @@ export class FormControlService {
             key: 'Female',
             value: 'female'
           }
-        ],
+        ], 
         validators: [
           {
             key: 'required',

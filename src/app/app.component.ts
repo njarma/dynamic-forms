@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { FormControlBase } from './shared/controls/form-control-base';
 import { Observable } from 'rxjs/internal/Observable';
-import { FormControlService } from './shared/service/form-control-service';
+import { FormControlService } from './shared/services/form-control-service';
 
 @Component({
   selector: 'app-root',
