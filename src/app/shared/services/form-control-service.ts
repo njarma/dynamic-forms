@@ -11,6 +11,7 @@ export class FormControlService {
   getFormControls(opt?) {
     const controls: FormControlBase<string>[] = [
       new TextboxControl({
+        controlType: 'textbox',
         key: 'Username',
         type: 'textbox',
         label: 'Enter username',
@@ -18,7 +19,7 @@ export class FormControlService {
           {
             key: 'required',
             value: true,
-            text: 'nput required'
+            text: 'Input required'
           },
           {
             key: 'minlength',
@@ -29,6 +30,7 @@ export class FormControlService {
       }),
     
       new TextboxControl({
+        controlType: 'textbox',
         key: 'Telephone',
         type: 'tel',
         label: 'Enter Phone',
@@ -52,6 +54,7 @@ export class FormControlService {
       }),
     
       new EmailControl({
+        controlType: 'textbox',
         key: 'Email',
         type: 'email',
         label: 'Enter email',
@@ -59,7 +62,7 @@ export class FormControlService {
           {
             key: 'required',
             value: true,
-            text: 'nput required'
+            text: 'Input required'
           },
           {
             key: 'pattern',
@@ -75,6 +78,7 @@ export class FormControlService {
       }),
     
       new SelectControl({
+        controlType: 'select',
         key: 'Gender',
         label: 'Select Gender',
         //options: opt,
@@ -97,7 +101,7 @@ export class FormControlService {
         ]
     
       })
-    
+
       /* {
         controlName: 'Vehicle you own',
         placeholder: 'Select vehicle',

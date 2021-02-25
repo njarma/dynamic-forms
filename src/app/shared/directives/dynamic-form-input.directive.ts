@@ -5,7 +5,7 @@ import { FormGroup } from '@angular/forms';
 import { FormControlBase } from '../controls/form-control-base';
 
 const components = {
-  'texbox': InputTextComponent,
+  'textbox': InputTextComponent,
   'select': InputSelectComponent
 };
 
@@ -35,6 +35,7 @@ export class DynamicFormInputDirective implements OnInit {
   private loadComponent() {    
     if (this.input && this.input.controlType) {
       const component = this.resolver.resolveComponentFactory<any>(components[this.input.controlType]);
+      debugger;
       this.component = this.container.createComponent(component);
       this.component.instance.input = this.input;
       this.component.instance.form = this.form;

@@ -23,6 +23,8 @@ import { DynamicFormInputDirective } from './shared/directives/dynamic-form-inpu
     FormsModule,
     ReactiveFormsModule
   ],
+  exports: [
+  ],
   providers: [],
   bootstrap: [AppComponent]
 })

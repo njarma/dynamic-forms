@@ -1,1 +1,10 @@
-<p>input-select works!</p>
+<div class="form-group" [formGroup]="form">
+    <!-- <div class="text-16-m mb-16 ">{{input.section}}</div> -->
+    <select [formControlName]="input.key"
+            [name]="input.key"
+            [id]="input.key"
+            class="input">
+    <option *ngFor="let option of input.options"
+            [value]="option.value">{{option.key}}</option>
+  </select>
+</div>

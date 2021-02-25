@@ -21,7 +21,6 @@ export class DynamicFormComponent implements OnInit {
       let validators = [];
 
       formControl.validators.forEach( validator => {
-        debugger;
         const VALUE = (Number(validator.value));
 
         if (validator.key == 'required') {
@@ -40,7 +39,6 @@ export class DynamicFormComponent implements OnInit {
       });
       formGroup[formControl.key] = new FormControl(null, validators);
     });
-    debugger;
     this.form = new FormGroup(formGroup);
   }
 

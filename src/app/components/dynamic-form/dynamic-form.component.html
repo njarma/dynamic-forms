@@ -1,4 +1,10 @@
 <form [formGroup]="form" (submit)="submitForm()">
+  <div *ngFor="let input of formData">
+    <ng-container appDynamicFormInput [input]="input" [form]="form"></ng-container>
+  </div>
+</form>
+
+<!-- <form [formGroup]="form" (submit)="submitForm()">
 
   <ng-template ngFor let-input [ngForOf]="formData">
 
@@ -17,9 +23,6 @@
             <div *ngFor="let validator of input.validators">
               <div *ngIf="form.get(input.key).errors[validator.key]">{{ validator.text }}</div>
             </div>
-<!--             <div *ngIf="form.get(input.controlName).errors.required">Input required</div>
-            <div *ngIf="form.get(input.controlName).errors.minlength">Minimum length is {{input.validators.minlength}}</div>
-            <div *ngIf="form.get(input.controlName).errors.pattern">Bad email format</div> -->
           </div>
         </div>
       </ng-template>
@@ -38,13 +41,13 @@
       </div>
       </ng-template>
 
-<!--       <ng-template [ngSwitchCase]="'radio'">
+       <ng-template [ngSwitchCase]="'radio'">
         <div *ngFor="let option of input.options" class="form-group row">
           <input [formControlName]="input.controlName" [type]="input.controlType" [name]="input.controlName"
             [value]="option.value" [required]="input.validators.required">
           <label [for]="input.controlName"> {{option.optionName}}</label>
         </div>
-      </ng-template> -->
+      </ng-template>
     </ng-container>
 
   </ng-template>
@@ -62,3 +65,4 @@
     </div>
   </ng-container>
 </form>
+ -->
