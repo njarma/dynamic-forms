@@ -1,10 +1,28 @@
 <div class="form-group" [formGroup]="form">
     <!-- <div class="text-16-m mb-16 ">{{input.section}}</div> -->
-    <select [formControlName]="input.key"
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <mat-form-field class="input">
+                        <mat-select
+                        [formControlName]="input.key"
+                        [id]="input.key">
+                            <mat-option 
+                            *ngFor="let option of input.options"
+                            [value]="option.value">
+                                    {{option.key}}
+                            </mat-option>
+                        </mat-select>
+                </mat-form-field>
+            </div>
+        </div>
+    </div>
+
+<!--     <select [formControlName]="input.key"
             [name]="input.key"
             [id]="input.key"
             class="input">
     <option *ngFor="let option of input.options"
-            [value]="option.value">{{option.key}}</option>
-  </select>
+            [value]="option.value">{{option.key}}</option> 
+  </select>-->
 </div>

@@ -11,10 +11,13 @@ export class InputSelectComponent implements OnInit {
 
   @Input() input: FormControlBase<any>;
   @Input() form: FormGroup;
+  selected: any;
 
   constructor() { }
 
   ngOnInit(): void {
+    debugger;
+    this.selected = this.input.options[0];
   }
 
 }

@@ -8,7 +8,10 @@ import { InputTextComponent } from './components/input-text/input-text.component
 import { InputDateComponent } from './components/input-date/input-date.component';
 import { InputSelectComponent } from './components/input-select/input-select.component';
 import { DynamicFormInputDirective } from './shared/directives/dynamic-form-input.directive';
-
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatInputModule } from "@angular/material/input";
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatSelectModule } from "@angular/material/select";
 @NgModule({
   declarations: [
     AppComponent,
@@ -21,7 +24,11 @@ import { DynamicFormInputDirective } from './shared/directives/dynamic-form-inpu
   imports: [
     BrowserModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    BrowserAnimationsModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatSelectModule
   ],
   exports: [
   ],

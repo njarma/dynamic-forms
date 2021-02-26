@@ -1,16 +1,28 @@
 <div class="form-group" [formGroup]="form">
-    <!-- <div class="text-16-m mb-16 ">{{input.section}}</div> -->
-    <input  [formControlName]="input.key"
-            [type]="input.type" 
-            [name]="input.key"
-            [id]="input.key"
-            [value]="input.value ? input.value  : ''"
-            [placeholder]="input.label" 
-            class="input"/>
-    <div *ngIf="form.get(input.key).invalid && (form.get(input.key).dirty || form.get(input.key).touched)">
-        <container *ngFor="let validator of input.validators">
-            <div class="error" *ngIf="form.get(input.key).errors[validator.key]">{{ validator.text }}</div>
-        </container>
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <!-- <div class="text-16-m mb-16 ">{{input.section}}</div> -->
+                <mat-form-field class="input">
+                    <input
+                    matInput
+                    [type]="input.type"
+                    MatFormFieldControl="input.key"
+                    [formControlName]="input.key"
+                    [name]="input.key"
+                    [id]="input.key"
+                    [value]="input.value ? input.value  : ''"
+                    [placeholder]="input.label" />        
+                </mat-form-field>
+                <div *ngIf="form.get(input.key).invalid && (form.get(input.key).dirty || form.get(input.key).touched)">
+                    <container *ngFor="let validator of input.validators">
+                        <mat-error *ngIf="form.get(input.key).errors[validator.key]">{{ validator.text }}</mat-error>
+                    </container>
+                </div>
+            </div>
+<!--             <div class="col-4">
+                <pre>{{form.get(input.key).invalid | json}}</pre>
+            </div> -->
+        </div>
     </div>
-    <pre>{{form.get(input.key).invalid | json}}</pre>
 </div>

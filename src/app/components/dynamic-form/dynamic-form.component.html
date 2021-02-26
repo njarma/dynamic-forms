@@ -1,6 +1,7 @@
 <form [formGroup]="form" (submit)="submitForm()">
   <div *ngFor="let input of formData">
     <ng-container appDynamicFormInput [input]="input" [form]="form"></ng-container>
+    <br>
   </div>
 </form>
 

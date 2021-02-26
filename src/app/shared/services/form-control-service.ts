@@ -13,7 +13,7 @@ export class FormControlService {
     new TextboxControl({
       key: 'Username',
       type: 'textbox',
-      label: 'Enter username',
+      label: 'Enter user name',
       validators: [
         {
           key: 'required',
@@ -31,7 +31,7 @@ export class FormControlService {
     new TextboxControl({
       key: 'Telephone',
       type: 'tel',
-      label: 'Enter Phone',
+      label: 'Enter phone',
       validators: [
         {
           key: 'required',
